@@ -215,7 +215,19 @@ form button:hover {
 }
 
 /* Define o estilo para seções com IDs específicos */
-#VESTIBULARES, #AVA, #INSTITUCIONAIS, #SOFTWARES {
+#VESTIBULARES, #AVA, #SOFTWARES {
+    padding: 30px; /* Adiciona padding interno de 20px */
+    background: #ab8e46; /* Define a cor de fundo das seções */
+    color: #fff; /* Define a cor do texto como branco */
+    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
+    margin: 30px; /* Adiciona margem externa de 30px */
+    text-align: center; /* Centraliza o texto dentro das seções */
+    padding-top: 5px;
+    box-shadow:  0 0 1rem #000;
+    
+}
+
+#INSTITUCIONAIS {
     padding: 30px; /* Adiciona padding interno de 20px */
     background: #ab8e46; /* Define a cor de fundo das seções */
     color: #fff; /* Define a cor do texto como branco */
