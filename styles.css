@@ -309,9 +309,9 @@ form button:hover {
 
 /* Define o estilo para as imagens dentro dos links */
 .link-image {
-    max-width: 100px; /* Define a largura máxima das imagens */
-    margin-top: -10px; /* Adiciona margem inferior de 10px às imagens */
-    margin-bottom: -50px;
+    max-width: 900px; /* Define a largura máxima das imagens */
+    margin-top: -5px; /* Adiciona margem inferior de 10px às imagens */
+    margin-bottom: -70px;
 }
 
 #p-footer {
