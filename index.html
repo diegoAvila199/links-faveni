@@ -1,48 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <!-- Define o conjunto de caracteres da página como UTF-8 -->
     <meta charset="UTF-8">
-    <!-- Define a viewport para garantir que a página seja responsiva e se ajuste ao tamanho da tela do dispositivo -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Define o título da página que aparece na aba do navegador -->
     <title>Central de links Faveni Morumbi</title>
-    <!-- Link para o arquivo CSS externo que contém os estilos da página -->
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Cabeçalho da página -->
     <header>
-        <!-- Navegação do cabeçalho -->
         <nav>
-            <!-- Logo da Unifaveni -->
             <img src="unifaveniLogo.png" alt="Logo" class="logo">
-            <!-- Lista de botões de navegação -->
             <div class="button-list">
                 <ul>
-                    <!-- Links para as seções da página -->
-                    <li><a href="#INSTITUCIONAIS" class="button">INSTITUCIONAIS</a></li>
-                    <li><a href="#AVA" class="button">AVA</a></li>
                     <li><a href="#SOFTWARES" class="button">SOFTWARES</a></li>
+                    <li><a href="#AVA" class="button">AVA</a></li>
                     <li><a href="#VESTIBULARES" class="button">VESTIBULARES</a></li>
+                    <li><a href="#POLOS" class="button">POLOS</a></li>
+                    <li><a href="#INSTITUCIONAIS" class="button">INSTITUCIONAIS</a></li>
                     <li><a href="#TICKET" class="button">REPORT</a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <!-- Seção de boas-vindas -->
     <section id="Bem-vindo">
-        <!-- Título da seção -->
         <h1><STRONG>CENTRAL DE LINKS UNIFAVENI MORUMBI </STRONG></h1>
-      
     </section>
 
-    <!-- Seção de softwares -->
-    <section id="SOFTWARES">
-        <!-- Subtítulo da seção -->
+    <section id="SOFTWARES" >
         <h2 class="title">LISTAS DE SOFWARES</h2>
-        <!-- Lista de links para softwares -->
         <ul class="quick-links2">
             <li><a href="https://gfmorumbi.bitrix24.com.br/" target="_blank">BITRIX24</a></li>
             <li><a href="https://agente.sonax.net.br/login" target="_blank">SONAX</a></li>
@@ -55,11 +42,8 @@
         </ul>
     </section>
 
-    <!-- Seção de portais AVA -->
     <section id="AVA">
-        <!-- Subtítulo da seção -->
         <h2 class="title">PORTAIS AVA</h2>
-        <!-- Lista de links para portais AVA -->
         <ul class="quick-links">
             <li><a href="https://ava.unifaveni.com.br/wp-login.php?redirect_to=https%3A%2F%2Fava.unifaveni.com.br%2F" target="_blank">PORTAL AVA <br> 2° LICENCIATURA</a></li>
             <li><a href="https://ava.saude.unifaveni.com.br/wp-login.php?redirect_to=https%3A%2F%2Fava.saude.unifaveni.com.br%2F" target="_blank"> PORTAL <br> AVA SAÚDE</a></li>
@@ -68,67 +52,46 @@
         </ul>
     </section>
 
-    <!-- Seção de vestibulares -->
     <section id="VESTIBULARES">
-        <!-- Título da seção -->
-        <h1 class="title">VESTIBULARES</h1>
-        <!-- Lista de links para vestibulares -->
+        <h2 class="title">VESTIBULARES</h2>
         <ul class="quick-links2">
             <li><a href="https://universa.unifaveni.com.br/vestibular" target="_blank">Universa Unifaveni - Vestibular</a></li>
             <li><a href="https://universa.domalberto.com.br/vestibular/" target="_blank">Universa Dom Alberto - Vestibular</a></li>
         </ul>
     </section>
 
-    
     <section id="POLOS">
-        <!-- Título da seção -->
-        <h1 class="title">POLOS</h1>
-        <!-- Lista de links institucionais com imagens -->
+        <h2 class="title">POLOS</h2>
         <ul class="quick-links">
             <li><a href="https://docs.google.com/spreadsheets/d/1MqD8RDqtfw6XMpsYdBeeypElFvJi-ixBPp2U-do7-Yw/edit?gid=0#gid=0" target="_blank"><br><br><img src="sheets.png" alt="sheets" class="link-image">POLOS</a></li>
             <li><a href="https://byelinux.github.io/fv/" target="_blank"><br><br><img src="sheets.png" alt="sheets" class="link-image">GEOGUIA</a></li>
-
         </ul>
     </section>
 
-    <!-- Seção institucional -->
     <section id="INSTITUCIONAIS">
-        <!-- Título da seção -->
         <h1 class="title">INSTITUCIONAIS</h1>
-        <!-- Lista de links institucionais com imagens -->
         <ul class="quick-links">
             <li><a href="https://unifaveni.com.br/" target="_blank"><br><img src="unifaveniLogo.png" alt="Unifaveni" class="link-image">ACESSO AO INSTITUCIONAL UNIFAVENI</a></li>
             <li><a href="https://domalberto.edu.br/" target="_blank"><br><img src="domalberto.png" alt="Dom Alberto" class="link-image">ACESSO AO INSTITUCIONAL DOM ALBERTO</a></li>
             <li><a href="https://faveni.edu.br/" target="_blank"><br><img src="fv.png" alt="Faveni" class="link-image">ACESSO AO INSTITUCIONAL FAVENI</a></li>
             <li><a href="https://uniabeu.edu.br/" target="_blank"><br><img src="uniabeu.png" alt="Uniabeu" class="link-image">ACESSO AO INSTITUCIONAL UNIABEU</a></li>
-            
         </ul>
     </section>
 
-
-    <!-- Seção de contato -->
     <section id="TICKET">
-        <!-- Subtítulo da seção -->
         <h2 class="title">CONTATO</h2>
-        <!-- Formulário de contato -->
         <form id="contact-form">
-            <!-- Rótulo e campo de entrada para o nome -->
-            <label for="name" ></label><input type="text" id="name" name="name" required placeholder="Nome Completo">
-            <!-- Rótulo e campo de entrada para o email -->
+            <label for="name"></label><input type="text" id="name" name="name" required placeholder="Nome Completo">
             <label for="email"></label><input type="email" id="email" name="email" required placeholder="Email"> 
-            <!-- Rótulo e área de texto para a mensagem -->
             <label for="message"></label><textarea id="message" name="message" required placeholder="Mensagem"></textarea>
-            <!-- Botão de envio do formulário -->
             <div class="btn"><button type="submit">Enviar</button></div>
         </form>
     </section>
 
-    <!-- Rodapé da página com direitos autorais -->
     <div id="p-footer">
-        <p >&copy; Developed by Diego Avila. All rights reserved.</p>
+        <p>&copy; Developed by Diego Avila. All rights reserved.</p>
     </div>
 
-    <!-- Link para o arquivo JavaScript externo que contém os scripts da página -->
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
