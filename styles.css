@@ -8,7 +8,7 @@ body {
     margin: 0; /* Remove a margem padrão do corpo */
     padding: 0; /* Remove o padding padrão do corpo */
     line-height: 1.6; /* Define a altura da linha para 1.6 vezes o tamanho da fonte */
-    background-color: #dce0d2; /* Define a cor de fundo principal do site */
+    background-color: #dce0d27a; /* Define a cor de fundo principal do site */
 }
 
 /* Define o estilo para o cabeçalho da página */
@@ -17,7 +17,7 @@ header {
     padding: 2px 0; /* Adiciona padding superior e inferior de 2px */
     text-align: center; /* Centraliza o texto dentro do cabeçalho */
     position: relative; /* Define o posicionamento relativo para permitir a sobreposição dos elementos filhos */
-    color: #fff; /* Define a cor do texto como branco */
+    color: #ffffff86; /* Define a cor do texto como branco */
 }
 
 /* Define o estilo para a sobreposição escura no cabeçalho */
@@ -51,7 +51,7 @@ header nav ul li {
 
 /* Define o estilo para os links dentro dos itens da lista de navegação */
 header nav ul li a {
-    color: #fff; /* Define a cor do texto dos links como branco */
+    color: #ffffff53; /* Define a cor do texto dos links como branco */
     text-decoration: none; /* Remove o sublinhado dos links */
 }
 
@@ -71,20 +71,20 @@ header nav ul li a {
     padding: 0; /* Remove o padding da lista */
     margin: 0; /* Remove a margem da lista */
     display: flex; /* Exibe os itens em linha horizontal */
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se necessário */
-    gap: 10px; /* Adiciona espaçamento de 10px entre os botões */
+    flex-wrap: wrap-reverse; /* Permite que os itens quebrem para a próxima linha se necessário */ 
     justify-content: center; /* Centraliza os botões horizontalmente */
 }
 
 /* Define o estilo para os botões dentro da lista de botões */
 .button-list .button {
     text-decoration: none; /* Remove o sublinhado dos links */
-    color: #fff; /* Define a cor do texto dos botões como branco */
+    color: #ffffffdf; /* Define a cor do texto dos botões*/
+    font-family:serif ;
     font-weight: bold; /* Define o texto dos botões em negrito */
     display: inline-block; /* Exibe os botões como blocos inline */
-    padding: 10px 50px; /* Adiciona padding interno de 10px na vertical e 20px na horizontal */
+    padding: 10px 30px; /* Adiciona padding interno de 10px na vertical e 20px na horizontal */
     background-color: var(--green-color); /* Define a cor de fundo dos botões */
-    border: none; /* Remove a borda padrão dos botões */
+    border: 1.5px solid #ab8e46; /*adicona bordas aos botôes*/
     border-radius: 15px; /* Adiciona bordas arredondadas aos botões */
     transition: background-color 0.1s ease, transform 0.5s ease; /* Define transições suaves para mudanças de cor e escala */
 }
@@ -129,7 +129,7 @@ header nav ul li a {
 /* Define o estilo para o parágrafo dentro da seção de boas-vindas */
 #Bem-vindo p {
     font-size: 1.2rem; /* Define o tamanho da fonte do parágrafo */
-    color: #fff; /* Define a cor do texto como branco */
+    color: #ffffffa4; /* Define a cor do texto como branco */
     margin-top: 0; /* Remove a margem superior do parágrafo */
     padding-bottom: 20px; /* Adiciona padding inferior de 20px */
 }
@@ -170,7 +170,7 @@ form label {
 form input, form textarea {
     padding: 10px; /* Adiciona padding interno de 5px */
     margin: 5px 0 20px 0; /* Adiciona margem vertical de 5px e margem inferior de 20px */
-    border: 1px solid var(--green-color); /* Define a borda dos campos como uma linha sólida da cor especificada */
+    border: 1.5px solid var(--green-color); /* Define a borda dos campos como uma linha sólida da cor especificada */
     border-radius: 5px; /* Adiciona bordas arredondadas aos campos */
     background-color: #fff; /* Define a cor de fundo dos campos como branco */
     color: #000; /* Define a cor do texto dentro dos campos como preto */
@@ -187,7 +187,11 @@ form textarea {
     font-weight: 800;
     font-size: 30px;
     text-shadow:  0 0 1rem #0000004f;
-
+    text-shadow:
+    0.4px 0.4px 0 #fff, 
+    -0.4px -0.4px 0 #fff,
+    0.4px -0.4x 0 #fff,
+    -0.4px 0.4px 0 #fff;
 }
 
 #btn {
@@ -224,6 +228,7 @@ form button:hover {
     text-align: center; /* Centraliza o texto dentro das seções */
     padding-top: 5px;
     box-shadow:  0 0 1rem #000;
+    font-family: serif;
     
 }
 
@@ -248,7 +253,8 @@ form button:hover {
     text-align: center; /* Centraliza o texto dentro das seções */
     padding-top: 5px;
     box-shadow:  0 0 1rem #000;
-    
+    font-family: serif;
+
 }
 
 #TICKET {
@@ -262,7 +268,7 @@ form button:hover {
     box-shadow:  0 0 1rem #000;
     margin-top: -3px;
     margin-bottom: 100px;
-
+    font-family: serif;
 }
 
 
@@ -287,8 +293,8 @@ form button:hover {
     margin: 1px 10px; /* Adiciona margem vertical de 1px e horizontal de 10px aos itens */
     flex: 1 1 calc(50% - 20px); /* Define o tamanho flexível dos itens, com base na largura disponível */
     box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura dos itens */
-   
-    
+    border: 2px solid #000;
+    border: 5px;
 }
 
 /* Define o estilo específico para itens na lista .quick-links */
@@ -306,8 +312,9 @@ form button:hover {
     align-items: center; /* Alinha os itens do link verticalmente ao centro */
     background-color: var(--green-color); /* Define a cor de fundo dos links */
     padding: 30px; /* Adiciona padding interno de 20px */
-    border-radius: 3px; /* Adiciona bordas arredondadas aos links */
+    border-radius: 20px; /* Adiciona bordas arredondadas aos links */
     transition: background-color 0.3s ease; /* Define uma transição suave para a mudança de cor de fundo */
+    border: 1px solid #ffffffb4;
 }
 
 
