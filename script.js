@@ -1,42 +1,52 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Função para verificar a posição das seções
-    function revealOnScroll() {
-        const sections = document.querySelectorAll('section');
-        const windowHeight = window.innerHeight;
+document.querySelector('.button-list').addEventListener('click', function(e) {
+        if (e.target.tagName === "A" && e.target.classList.contains('button')) {
+            e.preventDefault();
+        
+            const targetId = e.target.getAttribute("href").substring(1);
+            const targetSection = document.getElementById(targetId);
+            
+            if (targetSection) {
+                const start = window.scrollY;
+                const end = targetSection.offsetTop;
+                const distance = end - start;
+                const duration = 800;
+                let startTime = null;
 
-        sections.forEach(section => {
-            const sectionTop = section.getBoundingClientRect().top;
-            const revealPoint = 150;
+                function scrollStep(currentTime) {
+                    if (startTime === null) startTime = currentTime;
+                    const progress = currentTime - startTime;
+                    const progressPercentage = Math.min(progress / duration, 1);
+                    const easeInOut = progressPercentage < 0.5 ? 2 * progressPercentage * progressPercentage: -1 + (4 - 2 * progressPercentage) * progressPercentage;
+                    
+                     window.scrollTo({
+                     top: start + distance * easeInOut,
+                    behavior: 'auto'
+                    });
+                
+                    if (progress < duration) {
+                    requestAnimationFrame(scrollStep);
+                    } else {
+                    history.replaceState(null, null, `#${targetId}`);
+                    }
+                }
 
-            if (sectionTop < windowHeight - revealPoint) {
-                section.classList.add('active');
+                requestAnimationFrame(scrollStep);
             }
-        });
-    }
+                 
+     }
+        
+    });
 
-    // Verifica a rolagem inicial
-    revealOnScroll();
-
-    // Adiciona o evento de rolagem
-    window.addEventListener('scroll', revealOnScroll);
-});
-
-// Envio do formulário para WhatsApp
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    let name = document.getElementById('name').value;
-    let email = document.getElementById('email').value;
-    let message = document.getElementById('message').value;
-
-    if (name && email && message) {
-        let whatsappNumber = '+5511969449698'; // Substitua pelo número do WhatsApp no formato internacional
-        let encodedMessage = encodeURIComponent(`Nome: ${name}\nE-mail: ${email}\nMensagem: ${message}`);
-        let whatsappUrl = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodedMessage}`;
-
-        window.open(whatsappUrl, '_blank'); // Abre o link em uma nova aba ou janela
-        this.reset(); // Limpa o formulário após o envio
-    } else {
-        alert('Por favor, preencha todos os campos.');
-    }
-});
+    document.getElementById('contact-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+    
+        const name = encodeURIComponent(document.getElementById('name').value);
+        const email = encodeURIComponent(document.getElementById('email').value);
+        const message = encodeURIComponent(document.getElementById('message').value);
+    
+        const phoneNumber = '+5511969449698';
+        const whatsappMessage = `Olá, eu sou ${name}. Meu email é ${email}. Mensagem: ${message}`;
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${whatsappMessage}`;
+    
+        window.location.href = whatsappUrl;
+    });
