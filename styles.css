@@ -194,6 +194,18 @@ form textarea {
     -0.4px 0.4px 0 #fff;
 }
 
+.title2 {
+    color: #ab8e46;
+    font-weight: 800;
+    font-size: 50px;
+    text-shadow:  0 0 60Srem #0000004f;
+    text-shadow:
+    0.4px 0.4px 0 #32733C, 
+    -0.4px -0.4px 0 #32733C,
+    0.4px -0.4x 0 #32733C,
+    -0.4px 0.4px 0 #32733C;
+}
+
 #btn {
     display: flex;
     justify-content: center;
@@ -220,7 +232,7 @@ form button:hover {
 
 /* Define o estilo para seções com IDs específicos */
 #VESTIBULARES, #AVA, #INSTITUCIONAIS, #SOFTWARES {
-    padding: 30px; /* Adiciona padding interno de 20px */
+    padding: 30px; /* Adiciona padding interno de 30px */
     background: #ab8e46; /* Define a cor de fundo das seções */
     color: #fff; /* Define a cor do texto como branco */
     border-radius: 5px; /* Adiciona bordas arredondadas às seções */
@@ -230,6 +242,51 @@ form button:hover {
     box-shadow:  0 0 1rem #000;
     font-family: serif;
     
+}
+
+#GEOGUIA {
+    padding: 5px; /* Adiciona padding interno de 30px */
+    background: #32733C; /* Define a cor de fundo das seções */
+    color: #ffffff; /* Define a cor do texto como branco */
+    border-radius: 100px; /* Adiciona bordas arredondadas às seções */
+    margin:10px; /* Adiciona margem externa de 30px */
+    text-align: center; /* Centraliza o texto dentro das seções */
+    padding-top: 5px;
+    box-shadow:  0 0 1rem #000;
+    font-family: serif;
+    font-weight: 700;
+    font-size: 33px;
+    
+}
+
+button {
+    background-color: #ab8e46;
+    color: white;
+    border: none;
+    padding: 14px 30px;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #ffffff;
+    color:#32733C;
+  }
+  
+  
+
+#TICKET {
+    padding: 30px; /* Adiciona padding interno de 20px */
+    background: #32733C; /* Define a cor de fundo das seções */
+    color: #fff; /* Define a cor do texto como branco */
+    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
+    margin: 290px; /* Adiciona margem externa de 30px */
+    text-align: center; /* Centraliza o texto dentro das seções */
+    padding-top: 5px;
+    box-shadow:  0 0 1rem #000;
+    margin-top: -3px;
+    margin-bottom: 100px;
+    font-family: serif;
 }
 
 #INSTITUCIONAIS {
@@ -257,19 +314,7 @@ form button:hover {
 
 }
 
-#TICKET {
-    padding: 30px; /* Adiciona padding interno de 20px */
-    background: #ab8e46; /* Define a cor de fundo das seções */
-    color: #fff; /* Define a cor do texto como branco */
-    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
-    margin: 290px; /* Adiciona margem externa de 30px */
-    text-align: center; /* Centraliza o texto dentro das seções */
-    padding-top: 5px;
-    box-shadow:  0 0 1rem #000;
-    margin-top: -3px;
-    margin-bottom: 100px;
-    font-family: serif;
-}
+
 
 
 /* Define o estilo específico para a seção com o ID VESTIBULARES */
@@ -340,3 +385,18 @@ form button:hover {
     justify-content: center;
     padding: 1px;
 }
+
+#cidade:focus {
+    border-color: blue;
+  }
+
+  #cidade {
+    width: 50%;
+    height: 40px;
+    font-size: 16px;
+    color: #000000;
+    background-color: #ffffff;
+  }
+    
+  
+  
