@@ -5,12 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Central de links Faveni Morumbi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
         <nav>
             <img src="unifaveniLogo.png" alt="Logo" class="logo">
+
+            <section id="Bem-vindo">
+                <h1><STRONG>CENTRAL DE LINKS </STRONG></h1>
+            </section>
+
             <div class="button-list">
                 <ul>
                     <li><a href="#SOFTWARES" class="button">SOFTWARES</a></li>
@@ -24,18 +30,16 @@
         </nav>
     </header>
 
-    <section id="Bem-vindo">
-        <h1><STRONG>CENTRAL DE LINKS UNIFAVENI MORUMBI </STRONG></h1>
-    </section>
+
     <section id="GEOGUIA" >
         <div class="formulario">
             <h2 class="title2">BUSCADOR DE POLOS</h2>
-            <label for="cidade" class="cidade1">Digite o nome da cidade:</label>
-            <input type="text" id="cidade" placeholder="Digite o nome da cidade">
-            <button onclick="buscar()">Localizar</button>
+            <label for="cidade" class="cidade1"></label>
+            <input type="text" id="cidade" placeholder="Cidade - UF">
+            <button onclick="buscar()"><i class="fa-solid fa-magnifying-glass"></i></button>
             <p id="resultado"></p>
-            <a href="https://docs.google.com/spreadsheets/d/164D-CJM408op7kAfmE3KwKN24eqg7FTvrnZj5wlW_qI/edit?usp=sharing" target="_blank">CIDADES E POLOS NÃO ENCONTRADOS</a>
         </div>
+       <a href="https://docs.google.com/spreadsheets/d/164D-CJM408op7kAfmE3KwKN24eqg7FTvrnZj5wlW_qI/edit?usp=sharing" class="botao-link" target="_blank">NÃO ENCONTRADOS</a>
     </section>
 
     <section id="SOFTWARES" >
@@ -85,8 +89,8 @@
         <h1 class="title">INSTITUCIONAIS</h1>
         <ul class="quick-links">
             <li><a href="https://unifaveni.com.br/" target="_blank"><br><img src="unifaveniLogo.png" alt="Unifaveni" class="link-image">ACESSO AO INSTITUCIONAL UNIFAVENI</a></li>
-            <li><a href="https://domalberto.edu.br/" target="_blank"><br><img src="domalberto.png" alt="Dom Alberto" class="link-image">ACESSO AO INSTITUCIONAL DOM ALBERTO</a></li>
-            <li><a href="https://faveni.edu.br/" target="_blank"><br><img src="fv.png" alt="Faveni" class="link-image">ACESSO AO INSTITUCIONAL FAVENI</a></li>
+            <li><a href="https://domalberto.edu.br/" target="_blank"><br><img src="domalberto.png" alt="Dom Alberto" class="link-image">ACESSO AO INSTITUCIONAL <br>DOM ALBERTO</a></li>
+            <li><a href="https://faveni.edu.br/" target="_blank"><br><img src="fv.png" alt="Faveni" class="link-image">ACESSO AO INSTITUCIONAL <br> FAVENI</a></li>
             <li><a href="https://uniabeu.edu.br/" target="_blank"><br><img src="uniabeu.png" alt="Uniabeu" class="link-image">ACESSO AO INSTITUCIONAL UNIABEU</a></li>
 
 
@@ -95,11 +99,11 @@
 
     <section id="SOFTWARES">
         <h1 class="title">ONBOARDING</h1>
-        <ul class="quick-links2">
+        <ul>
 
-            <a href="https://docs.google.com/document/d/16YlQ0Y9-khUWTJH34KrN3COMMeXejHAsQJH0997AwQY/edit?tab=t.0" target="_blank">TREINAMENTO FAVENI</a>
+            <a href="https://docs.google.com/document/d/16YlQ0Y9-khUWTJH34KrN3COMMeXejHAsQJH0997AwQY/edit?tab=t.0"  class="botao-link2" target="_blank">TREINAMENTO FAVENI</a>
 
-            <a href="https://docs.google.com/document/d/1IIcsr9rPmPnTAUiX_NivqmPccqj-s3TsWRCeSRWk_og/edit?copiedFromTrash&tab=t.0" target="_blank" download="ONBOARDING" class="link-image">ONBOARDING</a>
+            <a href="https://docs.google.com/document/d/1IIcsr9rPmPnTAUiX_NivqmPccqj-s3TsWRCeSRWk_og/edit?copiedFromTrash&tab=t.0" class="botao-link2" target="_blank" download="ONBOARDING" class="link-image">ONBOARDING</a>
 
         </ul>
     </section>
