@@ -29,13 +29,73 @@ document.querySelector('.button-list').addEventListener('click', function(e) {
                     history.replaceState(null, null, `#${targetId}`);
                     }
                 }
-
-                requestAnimationFrame(scrollStep);
+                     requestAnimationFrame(scrollStep);
             }
-                 
-     }
+    }
         
     });
+
+    const R = 6371; // Raio da Terra em quilômetros
+    function calcularDistancia(lat1, lon1, lat2, lon2) {
+       
+        const dLat = toRad(lat2 - lat1);
+        const dLon = toRad(lon2 - lon1);
+        const a =
+            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
+            Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        const distancia = R * c; // Distância em quilômetros
+        return distancia;
+    }
+    
+    function toRad(valor) {
+        return valor * Math.PI / 180;
+    }
+    
+    function formatarNomeCidade(nomeCidade) {
+        const partes = nomeCidade.trim().toLowerCase().split('-');
+        const cidade = partes[0].trim();
+        const uf = partes[1] ? partes[1].trim().toUpperCase() : '';
+    
+        const partesNome = cidade.split(' ');
+        const nomeFormatado = partesNome.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
+    
+        return `${nomeFormatado} - ${uf}`;
+    }
+    
+    function encontrarPoloMaisProximo(cidade) {
+        const cidadeFormatada = formatarNomeCidade(cidade);
+        let menorDistancia = Infinity;
+        let poloProximo = null;
+    
+        if (cidades_brasileiras[cidadeFormatada]) {
+            const coordenadasAluno = cidades_brasileiras[cidadeFormatada];
+    
+            for (const [polo, coordenadas] of Object.entries(polos_Faveni)) {
+                const distancia = calcularDistancia(coordenadasAluno[0], coordenadasAluno[1], coordenadas[0], coordenadas[1]);
+                if (distancia < menorDistancia) {
+                    menorDistancia = distancia;
+                    poloProximo = polo;
+                }
+            }
+        }
+    
+        return [poloProximo, menorDistancia === Infinity ? null : menorDistancia];
+    }
+    
+    function buscar() {
+        const cidadeAluno = document.getElementById('cidade').value.trim();
+        const resultadoElement = document.getElementById('resultado');
+        const [poloProximo, distancia] = encontrarPoloMaisProximo(cidadeAluno);
+    
+        if (poloProximo && distancia !== null) {
+            resultadoElement.textContent = `O polo mais próximo de ${cidadeAluno} está em ${poloProximo} e está a aproximadamente ${distancia.toFixed(2)} km de distância.`;
+        } else {
+            resultadoElement.textContent = "Não há polos da universidade próximos à sua cidade.";
+        }
+    }
+    
 
     document.getElementById('contact-form').addEventListener('submit', function(event) {
         event.preventDefault();
@@ -5094,111 +5154,105 @@ document.querySelector('.button-list').addEventListener('click', function(e) {
     
       const polos_Faveni = {
     //POlOS DE SÃO PAULO
-        "Polo Santos - SP": [-23.9513, -46.3350],
-        "Polo Catanduva - SP": [-21.1352, -48.9752],
-        "Polo Araraquara - SP": [-21.7850, -48.1780],
-        "Polo Presidente Prudente - SP": [-22.1211, -51.3924],
-        "Polo Sorocaba - SP": [-23.4969, -47.4587],
-        "Polo São José do Barreiro - SP": [-22.6412, -44.6003],
-        "Polo São Roque - SP": [-23.5284, -47.1331],
-        "Polo Santa Bárbara d'Oeste - SP": [-22.7515, -47.4145],
-        "Polo São José do Rio Preto - SP": [-20.8118, -49.3758],
-        "Polo Mogi das Cruzes - SP": [-23.5260, -46.1865],
-        "Polo José Bonifácio - SP": [-21.0521, -49.6825],
-        "Polo São Vicente - SP": [-23.9618, -46.3880],
-        "Polo Praia Grande - SP": [-24.0058, -46.4028],
-        "Polo Araçatuba - SP": [-21.2020, -50.4401],
-        "Polo Cerquilho - SP": [-23.1693, -47.7492],
-        "Polo São Paulo 1 - SP": [-23.5000, -46.6167],
-        "Polo Dourado - SP": [-22.2383, -48.3155],
-        "Polo São José do Campo - SP": [-23.1896, -45.8846],
-        "Polo Iguape - SP": [-24.7087, -47.5564],
-        "Polo Peruíbe - SP": [-24.3212, -47.0014],
-        "Polo São Bernardo do Campo - SP": [-23.6917, -46.5644],
-        "Polo Mirassol - SP": [-20.8175, -49.5208],
-        "Polo Americana - SP": [-22.7442, -47.3316],
-        "Polo Bauru - SP": [-22.3246, -49.0871],
-        "Polo Olímpia - SP": [-20.7363, -48.9104],
-        "Polo Cafelândia - SP": [-21.8183, -49.6133],
-        "Polo Bariri - SP": [-22.0754, -48.7396],
-        "Polo Jaboticabal - SP": [-21.2541, -48.3217],
-        "Polo Barretos - SP": [-20.5572, -48.5675],
-        "Polo Novo Horizonte - SP": [-21.4586, -49.2205],
-        "Polo Bebedouro - SP": [-20.9482, -48.4798],
-        "Polo São Carlos - SP": [-22.0154, -47.8947],
-        "Polo Monte Azul Paulista - SP": [-20.9066, -48.6414],
-        "Polo Ribeirão Preto - SP": [-21.1767, -47.8209],
-        "Polo Praia Grande - SP": [-24.0058, -46.4026],
-        "Polo Franca - SP": [-20.5383, -47.4009],
-        "Polo Hortolândia - SP": [-22.8583, -47.2126],
-        "Polo Indaiatuba - SP": [-23.0816, -47.2101],
-        "Polo Mauá - SP": [-23.6677, -46.4613],
-        "Polo Taubaté - SP": [-23.0264, -45.5553],
-        "Polo Jundiaí - SP": [-23.1857, -46.8978],
-        "Polo Marília - SP": [-22.217, -49.9501],
-        "Polo Guarujá - SP": [-23.9884, -46.256],
-        "Polo Piracicaba - SP": [-22.7337, -47.6476],
-        "Polo Campinas - SP": [-22.9056, -47.0608],
-        "Polo Carapicuíba - SP": [-23.5227, -46.8353],
-        "Polo Diadema - SP": [-23.6813, -46.6205],
-        "Polo Osasco - SP": [-23.5325, -46.7916],
-        "Polo Ribeirão Preto - SP": [-21.1775, -47.8103],
-        "Polo São Paulo - SP": [-23.5505, -46.6333],
-        "Polo Dom Alberto - SP": [-28.7146, -52.4488],
-        "Polo Cidade - SP": [-23.5505, -46.6333],
-        "Polo Itajobi - SP": [-21.3122, -49.0621],
-        "Polo Caraguatatuba - SP": [-23.6208, -45.4132],
-        "Polo Pindorama - SP": [-21.1855, -48.9018],
-        "Polo Itaquaquecetuba - SP": [-23.4835, -46.3487],
-        "Polo São Paulo - SP": [-23.5505, -46.6333],
-        "Polo Orlândia - SP": [-20.7208, -47.8866],
-        "Polo São Bernardo do Campo - SP": [-23.6914, -46.5646],
-        "Polo Taboão da Serra - SP": [-23.6019, -46.7526],
-        "Polo Jacareí - SP": [-23.3053, -45.965],
-        "Polo Catanduva - SP": [-21.136, -48.9723],
-        "Polo Leme - SP": [-22.1807, -47.3837],
-        "Polo São José dos Campos - SP": [-23.1896, -45.8841],
-        "Polo Brotas - SP": [-22.2792, -48.1269],
-        "Polo Cajati - SP": [-24.7335, -48.1223],
-        "Polo Campos do Jordão - SP": [-22.7383, -45.5925],
-        "Polo Santa Rita do Passa Quatro - SP": [-21.7088, -47.4788],
-        "Polo Tremembé - SP": [-22.9577, -45.5473],
-        "Polo Aguaí - SP": [-22.0595, -46.9788],
-        "Polo Laranjal Paulista - SP": [-23.0492, -47.8374],
-        "Polo Cabreúva - SP": [-23.3053, -47.1362],
-        "Polo Cachoeira Paulista - SP": [-22.6585, -45.0077],
-        "Polo Lucélia - SP": [-21.7189, -51.0212],
-        "Polo Novo Horizonte - SP": [-21.4676, -49.2223],
-        "Polo Osvaldo Cruz - SP": [-21.7969, -50.8797],
-        "Polo Itararé - SP": [-24.1125, -49.3352],
-        "Polo Pradópolis - SP": [-21.3539, -48.065],
-        "Polo Caçapava - SP": [-23.1006, -45.7061],
-        "Polo Cruzeiro - SP": [-22.5747, -44.9737],
-        "Polo Cubatão - SP": [-23.895, -46.4257],
-        "Polo Lençóis Paulista - SP": [-22.5985, -48.8037],
-        "Polo Lins - SP": [-21.6786, -49.7429],
-        "Polo Mongaguá - SP": [-24.0933, -46.6194],
-        "Polo Pindamonhangaba - SP": [-22.9237, -45.461],
-        "Polo Santana de Parnaíba - SP": [-23.4431, -46.9172],
-        "Polo Santo André - SP": [-23.6639, -46.5383],
-        "Polo Ubatuba - SP": [-23.4332, -45.0833],
-        "Polo Jaú - SP": [-22.2962, -48.557],
-        "Polo Bertioga - SP": [-23.8486, -46.1385],
-        "Polo Birigui - SP": [-21.2881, -50.3432],
-        "Polo Boituva - SP": [-23.2856, -47.6785],
-        "Polo Campo Limpo Paulista - SP": [-23.2072, -46.7885],
-        "Polo Mococa - SP": [-21.4645, -47.0024],
-        "Polo Embu-Guaçu - SP": [-23.8324, -46.8112],
-        "Polo Itanhaém - SP": [-24.1736, -46.788],
-        "Polo Itapetininga - SP": [-23.5915, -48.0538],
-        "Polo Santa Isabel - SP": [-23.315, -46.2233],
-        "Polo São Sebastião - SP": [-23.7669, -45.4094],
-        "Polo Várzea Paulista - SP": [-23.2137, -46.8283],
-        "Polo Itu - SP": [-23.2635, -47.2993],
-    
-    
-          
-          
+    "Polo Caçapava": [-23.0995, -45.7078],
+    "Polo Cruzeiro": [-22.5763, -44.9642],
+    "Polo Cubatão": [-23.8956, -46.425],
+    "Polo Lençóis Paulista": [-22.6025, -48.8031],
+    "Polo Lins": [-21.6786, -49.7425],
+    "Polo Mongaguá": [-24.0939, -46.6194],
+    "Polo Pindamonhangaba": [-22.9239, -45.4611],
+    "Polo Santana de Parnaíba": [-23.4436, -46.9178],
+    "Polo Santo André": [-23.6739, -46.5436],
+    "Polo Ubatuba": [-23.4331, -45.0833],
+    "Polo Jaú": [-22.2964, -48.5581],
+    "Polo Bertioga": [-23.8543, -46.139],
+    "Polo Birigui": [-21.2886, -50.34],
+    "Polo Boituva": [-23.2861, -47.6781],
+    "Polo Campo Limpo Paulista": [-23.2083, -46.7886],
+    "Polo Mococa": [-21.4647, -47.0022],
+    "Polo Embu Guaçu": [-23.8325, -46.8111],
+    "Polo Itanhaém": [-24.1839, -46.7889],
+    "Polo Itapetininga": [-23.5892, -48.0486],
+    "Polo Santa Isabel": [-23.3172, -46.2203],
+    "Polo São Sebastião": [-23.7813, -45.4097],
+    "Polo Várzea Paulista": [-23.2133, -46.8283],
+    "Polo Itu": [-23.2642, -47.2992],
+    "Polo Itajobi": [-21.3122, -49.0544],
+    "Polo Caraguatatuba": [-23.6205, -45.4138],
+    "Polo Pindorama": [-21.1894, -48.9088],
+    "Polo Itaquaquecetuba": [-23.4834, -46.3483],
+    "Polo São Paulo": [-23.55052, -46.633308],
+    "Polo Orlândia": [-20.7172, -47.8861],
+    "Polo São Bernardo do Campo": [-23.6914, -46.5643],
+    "Polo Taboão da Serra": [-23.6267, -46.7917],
+    "Polo Jacareí": [-23.3053, -45.9658],
+    "Polo Catanduva": [-21.1375, -48.9728],
+    "Polo Leme": [-22.1858, -47.3847],
+    "Polo São José dos Campos": [-23.1896, -45.8841],
+    "Polo Brotas": [-22.2794, -48.1253],
+    "Polo Cajati": [-24.7303, -48.1222],
+    "Polo Campos do Jordão": [-22.7383, -45.5923],
+    "Polo Santa Rita do Passa Quatro": [-21.7075, -47.4781],
+    "Polo Tremembé": [-22.9575, -45.5472],
+    "Polo Aguaí": [-22.0583, -46.9783],
+    "Polo Laranjal Paulista": [-23.0481, -47.8375],
+    "Polo Cabreúva": [-23.3072, -47.1364],
+    "Polo Cachoeira Paulista": [-22.6664, -45.0039],
+    "Polo Lucélia": [-21.7189, -51.0208],
+    "Polo Novo Horizonte": [-21.4672, -49.2239],
+    "Polo Osvaldo Cruz": [-21.7967, -50.8792],
+    "Polo Itararé": [-24.1128, -49.3353],
+    "Polo Pradópolis": [-21.3581, -48.0678],
+    "Polo Santos": [-23.9608, -46.3336],
+    "Polo Catanduva": [-21.1375, -48.9728],
+    "Polo Araraquara": [-21.7944, -48.1756],
+    "Polo Presidente Prudente": [-22.1217, -51.3853],
+    "Polo Sorocaba": [-23.5015, -47.4526],
+    "Polo São José do Barreiro": [-22.6425, -44.5775],
+    "Polo São Roque": [-23.5288, -47.1352],
+    "Polo Santa Bárbara D'Oeste": [-22.7556, -47.4144],
+    "Polo São José do Rio Preto": [-20.8203, -49.3797],
+    "Polo Mogi das Cruzes": [-23.5208, -46.1858],
+    "Polo José Bonifácio": [-21.0511, -49.6886],
+    "Polo São Vicente": [-23.9574, -46.3883],
+    "Polo Araçatuba": [-21.2089, -50.4328],
+    "Polo Cerquilho": [-23.1667, -47.7422],
+    "Polo São Paulo": [-23.55052, -46.633308],
+    "Polo Dourado": [-22.1044, -48.3172],
+    "Polo São José do Campo": [-23.1896, -45.8841],
+    "Polo Iguape": [-24.6986, -47.5533],
+    "Polo Peruíbe": [-24.3122, -46.9983],
+    "Polo São Bernardo do Campos": [-23.6914, -46.5643],
+    "Polo Mirassol": [-20.8192, -49.5119],
+    "Polo Americana": [-22.7375, -47.3314],
+    "Polo Bauru": [-22.3147, -49.0606],
+    "Polo Olimpia": [-20.7375, -48.9117],
+    "Polo Cafelândia": [-21.8033, -49.6094],
+    "Polo Bariri": [-22.0756, -48.7406],
+    "Polo Jaboticabal": [-21.2525, -48.3222],
+    "Polo Barretos": [-20.5539, -48.5697],
+    "Polo Novo Horizonte": [-21.4672, -49.2239],
+    "Polo Bebedouro": [-20.9494, -48.4797],
+    "Polo São Carlos": [-22.0175, -47.8908],
+    "Polo Monte Azul Paulista": [-20.9075, -48.6389],
+    "Polo Ribeirão Preto": [-21.1775, -47.8103],    
+    "Polo Franca": [-20.5389, -47.4008],
+    "Polo Hortolândia": [-22.8583, -47.222],
+    "Polo Indaiatuba": [-23.0883, -47.2111],
+    "Polo Mauá": [-23.6678, -46.4614],
+    "Polo Taubaté": [-23.0208, -45.5569],
+    "Polo Jundiaí": [-23.1856, -46.8978],
+    "Polo Marília": [-22.2153, -49.9508],
+    "Polo Guarujá": [-23.9933, -46.256],
+    "Polo Piracicaba": [-22.7253, -47.6492],
+    "Polo Campinas": [-22.9099, -47.0626],
+    "Polo Carapicuíba": [-23.5225, -46.8356],
+    "Polo Diadema": [-23.6861, -46.6228],
+    "Polo Osasco": [-23.5322, -46.7928],
+    "Polo Ribeirão Preto": [-21.1775, -47.8103],
+    "Polo São Paulo": [-23.55052, -46.633308],
+    "Polo Guarulhos": [-23.4542, -46.5333],
+         
         //Lista de polos em Minas Gerais
         "Polo Chapada do Norte - MG": [-17.0833, -42.5065],
         "Polo José Gonçalves de Minas - MG": [-16.9076, -42.3584],
@@ -5288,11 +5342,6 @@ document.querySelector('.button-list').addEventListener('click', function(e) {
         "Polo Ibituruna - MG": [-21.1496, -43.1021],
         "Polo João Monlevade - MG": [-19.8126, -43.1735],
         "Polo Montes Claros - MG": [-16.7282, -43.8578],
-    
-    
-    
-    
-        
     
         // Lista de polos do Acre
         "Polo Feijó - AC": [-8.1602, -70.3536],
@@ -5491,21 +5540,20 @@ document.querySelector('.button-list').addEventListener('click', function(e) {
     
     
           //Polos do Rio de Janeiro
-        "Polo Nova Friburgo - RJ": [-22.285, -42.5358],
-        "Polo Cabo Frio - RJ": [-22.8811, -42.0216],
-        "Polo Miracema - RJ": [-21.4106, -42.1977],
-        "Polo Rio das Ostras - RJ": [-22.5265, -41.9629],
-        "Polo Itaboraí - RJ": [-22.7425, -42.8572],
-        "Polo Itaperuna - RJ": [-21.2027, -41.8796],
-        "Polo Campos dos Goytacazes - RJ": [-21.7587, -41.3241],
-        "Polo Paraíba do Sul - RJ": [-22.1582, -43.3033],
-        "Polo Resende - RJ": [-22.4705, -44.4504],
-        "Polo Volta Redonda - RJ": [-22.5228, -44.1043],
-        "Polo Nova Iguaçu - RJ": [-22.755, -43.446],
-        "Polo Itaboraí - RJ": [-22.7591, -42.8681],
-        "Polo Duque de Caxias - RJ": [-22.7856, -43.3083],
-        "Polo Rio de Janeiro - RJ": [-22.9068, -43.1729],
-        "Polo São Gonçalo - RJ": [-22.8264, -42.9614],
+      "Polo Resende - RJ": [-22.4706, -44.4503],
+      "Polo Volta Redonda - RJ": [-22.5203, -44.0996],
+      "Polo Nova Iguaçu - RJ": [-22.7556, -43.4606],
+      "Polo Duque de Caxias - RJ": [-22.7896, -43.3099],
+      "Polo Rio de Janeiro - RJ": [-22.9068, -43.1729],
+      "Polo São Gonçalo - RJ": [-22.8268, -43.0634],
+      "Polo Nova Friburgo - RJ": [-22.2857, -42.5344],
+      "Polo Cabo Frio - RJ": [-22.8894, -42.0286],
+      "Polo Miracema - RJ": [-21.4128, -42.1931],
+      "Polo Rio das Ostras - RJ": [-22.5283, -41.9454],
+      "Polo Itaboraí - RJ": [-22.7479, -42.8584],
+      "Polo Itaperuna - RJ": [-21.2061, -41.8879],
+      "Polo Campos dos Goytacazes - RJ": [-21.7622, -41.3181],
+      "Polo Paraíba do Sul - RJ": [-22.1588, -43.2911],
     
         // Polos Rio Grande do Norte
         "Polo Lagoa Nova - RN": [-6.0931, -36.4783],
@@ -5571,64 +5619,5 @@ document.querySelector('.button-list').addEventListener('click', function(e) {
         "Polo Santa Rosa do Tocantins - TO": [-11.4513, -48.1207],
       };
     
-      function calcularDistancia(lat1, lon1, lat2, lon2) {
-        const R = 6371; // Raio da Terra em quilômetros
-        const dLat = toRad(lat2 - lat1);
-        const dLon = toRad(lon2 - lon1);
-        const a =
-            Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) *
-            Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        const distancia = R * c; // Distância em quilômetros
-        return distancia;
-    }
-    
-    function toRad(valor) {
-        return valor * Math.PI / 180;
-    }
-    
-    function formatarNomeCidade(nomeCidade) {
-        const partes = nomeCidade.trim().toLowerCase().split('-');
-        const cidade = partes[0].trim();
-        const uf = partes[1] ? partes[1].trim().toUpperCase() : '';
-    
-        const partesNome = cidade.split(' ');
-        const nomeFormatado = partesNome.map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
-    
-        return `${nomeFormatado} - ${uf}`;
-    }
-    
-    function encontrarPoloMaisProximo(cidade) {
-        const cidadeFormatada = formatarNomeCidade(cidade);
-        let menorDistancia = Infinity;
-        let poloProximo = null;
-    
-        if (cidades_brasileiras[cidadeFormatada]) {
-            const coordenadasAluno = cidades_brasileiras[cidadeFormatada];
-    
-            for (const [polo, coordenadas] of Object.entries(polos_Faveni)) {
-                const distancia = calcularDistancia(coordenadasAluno[0], coordenadasAluno[1], coordenadas[0], coordenadas[1]);
-                if (distancia < menorDistancia) {
-                    menorDistancia = distancia;
-                    poloProximo = polo;
-                }
-            }
-        }
-    
-        return [poloProximo, menorDistancia === Infinity ? null : menorDistancia];
-    }
-    
-    function buscar() {
-        const cidadeAluno = document.getElementById('cidade').value.trim();
-        const resultadoElement = document.getElementById('resultado');
-        const [poloProximo, distancia] = encontrarPoloMaisProximo(cidadeAluno);
-    
-        if (poloProximo && distancia !== null) {
-            resultadoElement.textContent = `O polo mais próximo de ${cidadeAluno} está em ${poloProximo} e está a aproximadamente ${distancia.toFixed(2)} km de distância.`;
-        } else {
-            resultadoElement.textContent = "Não há polos da universidade próximos à sua cidade.";
-        }
-    }
-    
+  
     
