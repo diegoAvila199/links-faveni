@@ -2,178 +2,159 @@
     --green-color: #32733C;
 }
 
-/* Define o estilo global para o corpo da página */
 body {
-    font-family: Arial, sans-serif; /* Define a fonte do texto como Arial, com fallback para sans-serif */
-    margin: 0; /* Remove a margem padrão do corpo */
-    padding: 0; /* Remove o padding padrão do corpo */
-    line-height: 1.6; /* Define a altura da linha para 1.6 vezes o tamanho da fonte */
-    background-color: #dce0d27a; /* Define a cor de fundo principal do site */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #dce0d27a;
 }
 
-/* Define o estilo para o cabeçalho da página */
 header {
-    background: #fdfdfd url('img.jpg') center/cover no-repeat; /* Define a cor de fundo e imagem de fundo do cabeçalho, centraliza a imagem e ajusta para cobrir o cabeçalho */
-    padding: 2px 0; /* Adiciona padding superior e inferior de 2px */
-    text-align: center; /* Centraliza o texto dentro do cabeçalho */
-    position: relative; /* Define o posicionamento relativo para permitir a sobreposição dos elementos filhos */
-    color: #ffffff86; /* Define a cor do texto como branco */
+    background: #fdfdfd url('img.jpg') center/cover no-repeat;
+    text-align: center;
+    position: relative;
+    color: #ffffff86;
 }
 
-/* Define o estilo para a sobreposição escura no cabeçalho */
 header::before {
-    content: ""; /* Cria um pseudo-elemento vazio */
-    position: absolute; /* Posiciona o pseudo-elemento de forma absoluta dentro do cabeçalho */
-    inset: 0; /* Define top, right, bottom, e left como 0, cobrindo toda a área do cabeçalho */
-    background-color: rgba(0, 0, 0, 0.6); /* Adiciona um fundo escuro semi-transparente */
-    z-index: 1; /* Define a camada do pseudo-elemento para estar atrás do conteúdo do cabeçalho */
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
 }
 
-/* Define o estilo para a navegação dentro do cabeçalho */
 header nav {
-    position: relative; /* Define o posicionamento relativo para o nav */
-    z-index: 2; /* Garante que o conteúdo da navegação esteja acima da sobreposição escura */
+    padding-top: 1px;
+    padding-bottom: 1px;
+    position: relative;
+    z-index: 2;
 }
 
-/* Define o estilo para a lista de itens de navegação */
 header nav ul {
-    list-style: none; /* Remove os marcadores padrão da lista */
-    padding: 0; /* Remove o padding da lista */
-    background: transparent; /* Define o fundo da lista como transparente */
-    z-index: 2; /* Garante que a lista de navegação esteja acima da sobreposição escura */
+    list-style: none;
+    padding: 0;
+    background: transparent;
+    z-index: 2;
 }
 
-/* Define o estilo para os itens da lista de navegação */
 header nav ul li {
-    display: inline; /* Exibe os itens em linha horizontal */
-    margin: 0 15px; /* Adiciona margem horizontal de 15px */
+    display: inline;
+    margin: 1px 10px;
 }
 
-/* Define o estilo para os links dentro dos itens da lista de navegação */
 header nav ul li a {
-    color: #ffffff53; /* Define a cor do texto dos links como branco */
-    text-decoration: none; /* Remove o sublinhado dos links */
+    color: #ffffff53;
+    text-decoration: none;
 }
 
-/* Define o estilo para a logo */
 .logo {
-    max-height: 1000px; /* Define a altura máxima da logo */
-    max-width: 200px; /* Define a largura máxima da logo */
-    transform: scale(2.3); /* Aumenta a logo em 10% */
+    max-height: 1000px;
+    max-width: 200px;
+    transform: scale(2.2);
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 
-
-
-
-/* Define o estilo para a lista de botões */
 .button-list {
-    list-style: none; /* Remove os marcadores padrão da lista */
-    padding: 0; /* Remove o padding da lista */
-    margin: 0; /* Remove a margem da lista */
-    display: flex; /* Exibe os itens em linha horizontal */
-    flex-wrap: wrap-reverse; /* Permite que os itens quebrem para a próxima linha se necessário */ 
-    justify-content: center; /* Centraliza os botões horizontalmente */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    padding-bottom: 5px;
 }
 
-/* Define o estilo para os botões dentro da lista de botões */
 .button-list .button {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    color: #ffffffdf; /* Define a cor do texto dos botões*/
-    font-family:serif ;
-    font-weight: bold; /* Define o texto dos botões em negrito */
-    display: inline-block; /* Exibe os botões como blocos inline */
-    padding: 10px 30px; /* Adiciona padding interno de 10px na vertical e 20px na horizontal */
-    background-color: var(--green-color); /* Define a cor de fundo dos botões */
-    border: 1.5px solid #ab8e46; /*adicona bordas aos botôes*/
-    border-radius: 15px; /* Adiciona bordas arredondadas aos botões */
-    transition: background-color 0.1s ease, transform 0.5s ease; /* Define transições suaves para mudanças de cor e escala */
+    text-decoration: none;
+    color: #ffffffdf;
+    font-family: serif;
+    font-weight: bold;
+    display: inline-block;
+    padding: 10px 30px;
+    background-color: var(--green-color);
+    border: 1.5px solid #ab8e46;
+    border-radius: 15px;
+    transition: background-color 0.1s ease, transform 0.5s ease;
 }
 
-/* Define o estilo para os botões ao passar o mouse */
 .button-list .button:hover {
-    background-color: #dce0d2; /* Define a cor de fundo ao passar o mouse */
-    color: var(--green-color); /* Define a cor do texto ao passar o mouse */
-    transform: scale(1.1); /* Aumenta a escala do botão em 5% ao passar o mouse */
+    background-color: #dce0d2;
+    color: var(--green-color);
+    transform: scale(1.1);
 }
 
-/* Define o estilo para a seção de boas-vindas */
 #Bem-vindo {
-    display: flex; /* Exibe o conteúdo em um contêiner flexível */
-    flex-direction: column; /* Alinha os itens na vertical */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    justify-content: center; /* Centraliza os itens verticalmente */
-    height: 12vh; /* Define a altura da seção como 12% da altura da viewport */
-    text-align: center; /* Centraliza o texto dentro da seção */
-    background-color: transparent; /* Define a cor de fundo da seção */
-    padding: 1px; /* Adiciona padding interno de 35px */
-    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 1vh;
+    text-align: center;
+    background-color: transparent;
+    padding: 100px;
+    padding-bottom: 0px;
+    padding-top: 10px;
 }
 
-/* Define o estilo para o título dentro da seção de boas-vindas */
 #Bem-vindo h1 {
-    font-size: 2.5rem; /* Define o tamanho da fonte */
-    color: #333; /* Cor do texto */
-    margin-bottom: 1px; /* Margem abaixo do título */
-    font-family: 'Times New Roman', Times, serif; /* Fonte */
-    font-weight: bold; /* Peso da fonte */
-    text-transform: uppercase; /* Transformação do texto */
-    line-height: 0.5; /* Altura da linha */
-    text-align: center; /* Alinhamento do texto */
-    letter-spacing: 1px; /* Espaçamento entre letras */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra do texto */
-    padding: 10px; /* Espaço interno */
-    
+    font-size: 2.5rem;
+    color: #ffffff;
+    margin-bottom: 150px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    line-height: 0.5;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding: 10px;
 }
 
-
-/* Define o estilo para o parágrafo dentro da seção de boas-vindas */
 #Bem-vindo p {
-    font-size: 1.2rem; /* Define o tamanho da fonte do parágrafo */
-    color: #ffffffa4; /* Define a cor do texto como branco */
-    margin-top: 0; /* Remove a margem superior do parágrafo */
-    padding-bottom: 20px; /* Adiciona padding inferior de 20px */
+    font-size: 1.2rem;
+    color: #ffffffa4;
+    margin-top: 0;
+    padding-bottom: 20px;
 }
 
-/* Define o estilo para as seções gerais */
 section {
-    padding: 20px; /* Adiciona padding interno de 20px */
-    margin: 20px; /* Adiciona margem externa de 20px */
-    background: #dce0d2; /* Define a cor de fundo das seções */
-    color: #fff; /* Define a cor do texto como branco */
-    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
+    padding: 20px;
+    margin: 20px;
+    background: #dce0d2;
+    color: #fff;
+    border-radius: 5px;
 }
 
-/* Define o estilo para o rodapé */
 footer {
-    background: var(--green-color); /* Define a cor de fundo do rodapé */
-    color: #fff; /* Define a cor do texto como branco */
-    text-align: center; /* Centraliza o texto dentro do rodapé */
-    padding: 10px 0; /* Adiciona padding interno de 10px na vertical */
-    position: absolute; /* Define o posicionamento absoluto para o rodapé */
-    bottom: 0; /* Posiciona o rodapé na parte inferior da página */
-    width: 100%; /* Define a largura do rodapé para ocupar 100% da largura da página */
+    background: var(--green-color);
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
-/* Define o estilo para o formulário */
 form {
-    display: flex; /* Exibe o formulário em um contêiner flexível */
-    flex-direction: column; /* Alinha os itens na vertical */
+    display: flex;
+    flex-direction: column;
 }
 
-/* Define o estilo para os rótulos do formulário */
 form label {
-    margin: 1px 0; /* Adiciona margem vertical de 1px aos rótulos */
-    color: var(--green-color); /* Define a cor do texto dos rótulos */
+    margin: 1px 0;
+    color: var(--green-color);
 }
 
-/* Define o estilo para os campos de entrada e áreas de texto do formulário */
 form input, form textarea {
-    padding: 10px; /* Adiciona padding interno de 5px */
-    margin: 5px 0 20px 0; /* Adiciona margem vertical de 5px e margem inferior de 20px */
-    border: 1.5px solid var(--green-color); /* Define a borda dos campos como uma linha sólida da cor especificada */
-    border-radius: 5px; /* Adiciona bordas arredondadas aos campos */
-    background-color: #fff; /* Define a cor de fundo dos campos como branco */
-    color: #000; /* Define a cor do texto dentro dos campos como preto */
+    padding: 10px;
+    margin: 5px 0 20px 0;
+    border: 1.5px solid var(--green-color);
+    border-radius: 5px;
+    background-color: #fff;
+    color: #000;
 }
 
 form textarea {
@@ -186,24 +167,15 @@ form textarea {
     color: var(--green-color);
     font-weight: 800;
     font-size: 30px;
-    text-shadow:  0 0 1rem #0000004f;
-    text-shadow:
-    0.4px 0.4px 0 #fff, 
-    -0.4px -0.4px 0 #fff,
-    0.4px -0.4x 0 #fff,
-    -0.4px 0.4px 0 #fff;
+    text-shadow: 0 0 1rem #0000004f, 0.4px 0.4px 0 #fff, -0.4px -0.4px 0 #fff, 0.4px -0.4px 0 #fff, -0.4px 0.4px 0 #fff;
 }
 
 .title2 {
     color: #ab8e46;
     font-weight: 800;
-    font-size: 50px;
-    text-shadow:  0 0 60Srem #0000004f;
-    text-shadow:
-    0.4px 0.4px 0 #32733C, 
-    -0.4px -0.4px 0 #32733C,
-    0.4px -0.4x 0 #32733C,
-    -0.4px 0.4px 0 #32733C;
+    font-size: 40px;
+    text-shadow: 0 0 60rem #0000004f, 0.4px 0.4px 0 #32733C, -0.4px -0.4px 0 #32733C, 0.4px -0.4px 0 #32733C, -0.4px 0.4px 0 #32733C;
+    margin: 2px;
 }
 
 #btn {
@@ -212,51 +184,94 @@ form textarea {
     text-align: center;
 }
 
-/* Define o estilo para o botão do formulário */
 form button {
-    padding: 10px; /* Adiciona padding interno de 10px */
+    padding: 10px;
     width: 100px;
     height: 50px;
-    border: none; /* Remove a borda padrão do botão */
-    background: var(--green-color); /* Define a cor de fundo do botão */
-    color: #fff; /* Define a cor do texto do botão como branco */
-    cursor: pointer; /* Altera o cursor para um ponteiro ao passar sobre o botão */
-    border-radius: 5px; /* Adiciona bordas arredondadas ao botão */
+    border: none;
+    background: var(--green-color);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
 }
 
-/* Define o estilo para o botão do formulário ao passar o mouse */
 form button:hover {
-    background: #fff; /* Altera a cor de fundo do botão ao passar o mouse */
-    color:var(--green-color);
-}
-
-/* Define o estilo para seções com IDs específicos */
-#VESTIBULARES, #AVA, #INSTITUCIONAIS, #SOFTWARES {
-    padding: 30px; /* Adiciona padding interno de 30px */
-    background: #ab8e46; /* Define a cor de fundo das seções */
-    color: #fff; /* Define a cor do texto como branco */
-    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
-    margin: 30px; /* Adiciona margem externa de 30px */
-    text-align: center; /* Centraliza o texto dentro das seções */
-    padding-top: 5px;
-    box-shadow:  0 0 1rem #000;
-    font-family: serif;
-    
+    background: #fff;
+    color: var(--green-color);
 }
 
 #GEOGUIA {
-    padding: 5px; /* Adiciona padding interno de 30px */
-    background: #32733C; /* Define a cor de fundo das seções */
-    color: #ffffff; /* Define a cor do texto como branco */
-    border-radius: 100px; /* Adiciona bordas arredondadas às seções */
-    margin:10px; /* Adiciona margem externa de 30px */
-    text-align: center; /* Centraliza o texto dentro das seções */
-    padding-top: 5px;
-    box-shadow:  0 0 1rem #000;
+    background: #32733C;
+    color: #ffffff;
+    border-radius: 90px;
+    margin-left: 70px;
+    margin-right: 70px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    text-align: center;
+    box-shadow: 0 0 1rem #000;
     font-family: serif;
     font-weight: 700;
-    font-size: 33px;
-    
+    font-size: 18px;
+    padding-bottom: 18px;
+    padding-top: 1px;
+}
+
+#VESTIBULARES, #AVA, #INSTITUCIONAIS, #SOFTWARES {
+    padding: 30px;
+    background: #ab8e46;
+    color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 1px;
+    box-shadow: 0 0 1rem #000;
+    font-family: serif;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+#TICKET {
+    padding: 30px;
+    background: #32733C;
+    color: #fff;
+    border-radius: 5px;
+    margin: 290px;
+    text-align: center;
+    padding-top: 1px;
+    box-shadow: 0 0 1rem #000;
+    margin-top: -3px;
+    margin-bottom: 10px;
+    margin-left: 90px;
+    margin-right: 90px;
+    font-family: serif;
+}
+
+#INSTITUCIONAIS {
+    padding: 30px;
+    background: #ab8e46;
+    color: #fff;
+    border-radius: 5px;
+    margin: 30px;
+    text-align: center;
+    padding-top: 1px;
+    box-shadow: 0 0 1rem #000;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+
+#POLOS {
+    padding: 30px;
+    background: #ab8e46;
+    color: #fff;
+    border-radius: 5px;
+    margin: 30px;
+    text-align: center;
+    box-shadow: 0 0 1rem #000;
+    margin-left: 90px;
+    margin-right: 90px;
+}
+#VESTIBULARES {
+    padding-bottom: 10px;
 }
 
 button {
@@ -266,115 +281,88 @@ button {
     padding: 14px 30px;
     border-radius: 50px;
     cursor: pointer;
-  }
+}
 
-  button:hover {
+button:hover {
     background-color: #ffffff;
-    color:#32733C;
-  }
-  
-  
-
-#TICKET {
-    padding: 30px; /* Adiciona padding interno de 20px */
-    background: #32733C; /* Define a cor de fundo das seções */
-    color: #fff; /* Define a cor do texto como branco */
-    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
-    margin: 290px; /* Adiciona margem externa de 30px */
-    text-align: center; /* Centraliza o texto dentro das seções */
-    padding-top: 5px;
-    box-shadow:  0 0 1rem #000;
-    margin-top: -3px;
-    margin-bottom: 100px;
-    font-family: serif;
+    color: #32733C;
 }
 
-#INSTITUCIONAIS {
-    padding: 30px; /* Adiciona padding interno de 20px */
-    background: #ab8e46; /* Define a cor de fundo das seções */
-    color: #fff; /* Define a cor do texto como branco */
-    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
-    margin: 30px; /* Adiciona margem externa de 30px */
-    text-align: center; /* Centraliza o texto dentro das seções */
-    padding-top: 5px;
-    box-shadow:  0 0 1rem #000;
-    
+.botao-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ab8e46;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 15px;
+    text-align: center;
 }
 
-#POLOS {
-    padding: 30px; /* Adiciona padding interno de 20px */
-    background: #ab8e46; /* Define a cor de fundo das seções */
-    color: #fff; /* Define a cor do texto como branco */
-    border-radius: 5px; /* Adiciona bordas arredondadas às seções */
-    margin: 30px; /* Adiciona margem externa de 30px */
-    text-align: center; /* Centraliza o texto dentro das seções */
-    padding-top: 5px;
-    box-shadow:  0 0 1rem #000;
-    font-family: serif;
-
+.botao-link:hover {
+    background-color: #ffffff;
+    color: #32733C;
 }
 
-
-
-
-/* Define o estilo específico para a seção com o ID VESTIBULARES */
-#VESTIBULARES {
-    padding-bottom: 20px; /* Define um padding interno de 1px */
+.botao-link2 {
+    display: inline-block;
+    padding: 16px 120px;
+    background-color: #32733C;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 15px;
+    text-align: center;
 }
 
-/* Define o estilo para listas de links */
+.botao-link2:hover {
+    background-color: #ffffff;
+    color: #32733C;
+}
+
 .quick-links, .quick-links2 {
-    list-style: none; /* Remove os marcadores padrão das listas */
-    padding: 0px; /* Remove o padding das listas */
-    margin: 0; /* Remove a margem das listas */
-    display: flex; /* Exibe os itens da lista em linha horizontal */
-    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha se necessário */
-    justify-content: space-between; /* Distribui os itens igualmente ao longo da linha com espaço entre eles */
-    
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
 
-/* Define o estilo para os itens das listas de links */
 .quick-links li, .quick-links2 li {
-    margin: 1px 10px; /* Adiciona margem vertical de 1px e horizontal de 10px aos itens */
-    flex: 1 1 calc(50% - 20px); /* Define o tamanho flexível dos itens, com base na largura disponível */
-    box-sizing: border-box; /* Inclui padding e bordas no cálculo da largura e altura dos itens */
+    margin: 1px 10px;
+    flex: 1 1 calc(50% - 20px);
+    box-sizing: border-box;
     border: 2px solid #000;
     border: 5px;
 }
 
-/* Define o estilo específico para itens na lista .quick-links */
 .quick-links li {
-    flex: 1 1 calc(10% - 80px); /* Ajusta a largura dos itens para uma proporção diferente */
+    flex: 1 1 calc(10% - 80px);
 }
 
-/* Define o estilo para os links dentro das listas de links */
 .quick-links li a, .quick-links2 li a {
-    text-decoration: none; /* Remove o sublinhado dos links */
-    color: #fff; /* Define a cor do texto dos links como branco */
-    font-weight: bold; /* Define o texto dos links em negrito */
-    display: flex; /* Exibe os links em um contêiner flexível */
-    flex-direction: column-reverse; /* Alinha os itens do link na direção reversa */
-    align-items: center; /* Alinha os itens do link verticalmente ao centro */
-    background-color: var(--green-color); /* Define a cor de fundo dos links */
-    padding: 30px; /* Adiciona padding interno de 20px */
-    border-radius: 20px; /* Adiciona bordas arredondadas aos links */
-    transition: background-color 0.3s ease; /* Define uma transição suave para a mudança de cor de fundo */
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    background-color: var(--green-color);
+    padding: 30px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
     border: 1px solid #ffffffb4;
 }
 
-
-/* Define o estilo para os links ao passar o mouse */
 .quick-links li a:hover, .quick-links2 li a:hover {
-    background-color: #dce0d2; /* Altera a cor de fundo dos links ao passar o mouse */
-    color: var(--green-color); /* Altera a cor do texto dos links ao passar o mouse */
-   
+    background-color: #dce0d2;
+    color: var(--green-color);
 }
 
-
-/* Define o estilo para as imagens dentro dos links */
 .link-image {
-    max-width: 90px; /* Define a largura máxima das imagens */
-    margin-top: -5px; /* Adiciona margem inferior de 10px às imagens */
+    max-width: 90px;
+    margin-top: -5px;
     margin-bottom: -70px;
 }
 
@@ -388,15 +376,14 @@ button {
 
 #cidade:focus {
     border-color: blue;
-  }
+}
 
-  #cidade {
+#cidade {
     width: 50%;
     height: 40px;
     font-size: 16px;
     color: #000000;
     background-color: #ffffff;
-  }
-    
-  
-  
+    border-radius: 50px;
+    text-align: center;
+}
