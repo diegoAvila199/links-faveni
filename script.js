@@ -5493,6 +5493,39 @@ document.querySelector('.button-list').addEventListener('click', function(e) {
         "Polo Bonito - MS": [-21.1256, -56.4813],
         "Polo Camapuã - MS": [-19.5341, -54.0435],
         "Polo Porto Murtinho - MS": [-21.6985, -57.8833],
+
+        // POLOS DE MINAS GERAIS
+          "Polo Poços de Caldas": [-21.7934, -46.53571],
+          "Polo São João del Rei": [-21.1314, -44.2526],
+
+          // POLOS DO RIO DE JANEIRO
+          "Polo Barra do Piraí": [-22.47, -43.82556],
+
+          // POLOS DO PARANÁ
+          "Polo Foz do Iguaçu": [-25.54778, -54.58806],
+          "Polo Cascavel": [-24.95778, -53.45951],
+
+          // POLOS DO ESPÍRITO SANTO
+          "Polo Vila Velha": [-20.32972, -40.2925],
+
+          // POLOS DE SÃO PAULO
+          "Polo Juquitiba": [-23.9317, -47.0683],
+          "Polo Monte Azul Paulista": [-20.9072, -48.6414],
+          "Polo Araçatuba": [-21.2089, -50.4328],
+          "Polo Martinópolis": [-22.1458, -51.1708],
+          "Polo Valentim Gentil": [-20.43138, -50.12129],
+
+          // POLOS DE SANTA CATARINA
+          "Polo Lebon Régis": [-26.9283, -50.6922],
+
+          // POLOS DE SERGIPE
+          "Polo Capela": [-10.50333, -37.05278],
+
+          // POLOS DE PERNAMBUCO
+          "Polo Recife": [-8.05389, -34.88111],
+
+          // POLOS DO TOCANTINS
+          "Polo Paraíso do Tocantins": [-10.1761, -48.8667]
     
           
         // Polos do Pará
