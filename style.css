@@ -391,7 +391,7 @@ nav {
 
 /* Ícones específicos para cada link */
 .quick-links2 li:nth-child(1) a::after { content: "\f0c2"; } /* BITRIX24 */
-.quick-links2 li:nth-child(2) a::after { content: "\f085"; } /* SONAX */
+.quick-links2 li:nth-child(2) a::after { content: "\f095"; } /* SONAX */
 .quick-links2 li:nth-child(3) a::after { content: "\f27a"; } /* VENICHAT */
 .quick-links2 li:nth-child(4) a::after { content: "\f080"; } /* POWER BI */
 .quick-links2 li:nth-child(5) a::after,
@@ -891,4 +891,12 @@ br {
   #p-footer p a:hover {
     text-decoration: underline;
   }
+#mapa {
+  width: 100%;
+  min-height: 300px;
+  height: 50vh; /* Altura relativa à viewport */
+  margin-top: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+}
   
