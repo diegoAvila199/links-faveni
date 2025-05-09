@@ -1,12 +1,16 @@
 
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central de Links UniFaveni - Vergueiro</title>
+    <title>Central de links Faveni Morumbi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
 </head>
 <body>
     <header>
@@ -19,28 +23,29 @@
 
             <div class="button-list">
                 <ul>
+                    <li><a href="#geoguia" class="button">BUSCADOR</a></li>
                     <li><a href="#SOFTWARES" class="button">SOFTWARES</a></li>
                     <li><a href="#AVA" class="button">AVA</a></li>
                     <li><a href="#VESTIBULARES" class="button">VESTIBULARES</a></li>
                     <li><a href="#POLOS" class="button">POLOS</a></li>
                     <li><a href="#INSTITUCIONAIS" class="button">INSTITUCIONAIS</a></li>
-                    <li><a href="#TICKET" class="button">REPORT</a></li>
+                    
                 </ul>
             </div>
         </nav>
     </header>
 
 
-    <section id="GEOGUIA" >
-        <div class="formulario">
-            <h2 class="title2">BUSCADOR DE POLOS</h2>
-            <label for="cidade" class="cidade1"></label>
-            <input type="text" id="cidade" placeholder="Cidade - UF">
-            <button onclick="buscar()"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <p id="resultado"></p>
-        </div>
-       <a href="https://docs.google.com/spreadsheets/d/164D-CJM408op7kAfmE3KwKN24eqg7FTvrnZj5wlW_qI/edit?usp=sharing" class="botao-link" target="_blank">NÃO ENCONTRADOS</a>
-    </section>
+    <section id="geoguia">
+        <h2>BUSCADOR DE POLOS</h2>
+        <input type="text" id="cidade" placeholder="Digite sua cidade (ex: Campinas - SP)" list="listaCidades" />
+        <datalist id="listaCidades">
+          <!-- Preenchido dinamicamente via JS -->
+        </datalist>
+        <button onclick="buscar()">Buscar</button>
+        <p id="resultado"></p>
+        <div id="mapa" style="height: 400px; margin-top: 20px;"></div>
+      </section>
 
     <section id="SOFTWARES" >
         <h2 class="title">SOFTWARES</h2>
@@ -53,8 +58,7 @@
             <li><a href="https://universa.domalberto.com.br/acesso/bem-vindo" target="_blank">UNIVERSA DOM ALBERTO</a></li>
             <li><a href="https://universa.abeu.edu.br/acesso/bem-vindo" target="_blank">UNIVERSA UNIABEU</a></li>
             <li><a href="https://grupofavenitimrb.freshdesk.com/support/tickets/389" target="_blank">TICKET TI</a></li>
-            <li><a href="https://byelinux.github.io/buscador/" target="_blank">BUSCADOR</a></li>
-            <li><a href="https://byelinux.github.io/fv/" target="_blank">GEOGUIA</a></li>
+          
 
         </ul>
     </section>
@@ -97,20 +101,20 @@
         </ul>
     </section>
 
-    <section id="SOFTWARES">
+    <section id="INSTITUCIONAIS">
         <h1 class="title">ONBOARDING</h1>
-        <ul>
+        <ul class="quick-links">
 
-            <a href="https://docs.google.com/document/d/16YlQ0Y9-khUWTJH34KrN3COMMeXejHAsQJH0997AwQY/edit?tab=t.0"  class="botao-link2" target="_blank">TREINAMENTO FAVENI</a>
+            <li><a href="https://docs.google.com/document/d/16YlQ0Y9-khUWTJH34KrN3COMMeXejHAsQJH0997AwQY/edit?tab=t.0"  class="botao-link2" target="_blank">TREINAMENTO FAVENI</a></li>
 
-            <a href="https://docs.google.com/document/d/1IIcsr9rPmPnTAUiX_NivqmPccqj-s3TsWRCeSRWk_og/edit?copiedFromTrash&tab=t.0" class="botao-link2" target="_blank" download="ONBOARDING" class="link-image">ONBOARDING</a>
+                <li><a href="https://docs.google.com/document/d/1IIcsr9rPmPnTAUiX_NivqmPccqj-s3TsWRCeSRWk_og/edit?copiedFromTrash&tab=t.0" class="botao-link2" target="_blank" download="ONBOARDING" class="link-image">ONBOARDING</a></li>
 
         </ul>
     </section>
 
 
     <section id="TICKET">
-        <h2 class="title2">CONTATO</h2>
+        <h2 class="title2">INFORME O POLO NÃO ENCONTRADO</h2>
         <form id="contact-form">
             <label for="name"></label><input type="text" id="name" name="name" required placeholder="Nome Completo">
             <label for="email"></label><input type="email" id="email" name="email" required placeholder="Email"> 
@@ -123,6 +127,8 @@
         <p>&copy; Developed by Diego Avila and Gabriel Santos. All rights reserved.</p>
     </div>
 
+    
+    <script src="scripts.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
