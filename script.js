@@ -210,3 +210,5 @@ document.addEventListener('DOMContentLoaded', () => {
 setTimeout(() => {
   mapa.invalidateSize();
 }, 500);
+
+mapa.scrollWheelZoom.disable();
