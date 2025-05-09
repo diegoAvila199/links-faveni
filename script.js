@@ -206,3 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     datalist.appendChild(option);
   });
 });
+
+setTimeout(() => {
+  mapa.invalidateSize();
+}, 500);
